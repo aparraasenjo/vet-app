@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pethistories</h1>
+
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Weight</th>
+      <th>Height</th>
+      <th>Description</th>
+      <th>Pet</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pethistories.each do |pethistory| %>
+      <tr>
+        <td><%= pethistory.date %></td>
+        <td><%= pethistory.weight %></td>
+        <td><%= pethistory.height %></td>
+        <td><%= pethistory.description %></td>
+        <td><%= pethistory.pet %></td>
+        <td><%= link_to 'Show', [@client, @pet, pethistory] %></td>
+        <td><%= link_to 'Edit', edit_client_pet_pethistory_path(@client, @pet, pethistory) %></td>
+        <td><%= link_to 'Destroy', [@client, @pet, pethistory], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pethistory', new_client_pet_pethistory_path(@client, @pet) %>
+<%= link_to 'Pet List', client_pets_path(@client) %>

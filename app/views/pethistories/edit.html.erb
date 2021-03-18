@@ -1,0 +1,6 @@
+<h1>Editing Pethistory</h1>
+
+<%= render 'form', pethistory: @pethistory %>
+
+<%= link_to 'Show', client_pet_pethistory_path(@client, @pet, @pethistory) %> |
+<%= link_to 'Back', client_pet_pethistories_path(@client, @pet) %>

@@ -1,0 +1,37 @@
+<%= form_with(model: [@client, @pet, pethistory], local: true) do |form| %>
+  <% if pethistory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pethistory.errors.count, "error") %> prohibited this pethistory from being saved:</h2>
+
+      <ul>
+      <% pethistory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weight %>
+    <%= form.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.text_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

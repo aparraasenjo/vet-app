@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @client.name %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @client.phone_number %>
+</p>
+
+<p>
+  <strong>E mail:</strong>
+  <%= @client.e_mail %>
+</p>
+
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th>Pet name</th>
+      <th>Maximum Weight</th>
+      <th>Maximum Height</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <% @client.pets.each do |pet|  %>
+      <tr>
+        <td><%= pet.name%></td>
+        <td><%= pet.max_weight%></td>
+        <td><%= pet.max_height%></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
